@@ -34,7 +34,7 @@
 cd jrender
 bash download_competition_data.sh
 ```
-完成后，可以看到模型训练测试使用的场景数据集。本次比赛共包含5个测试场景，其中Easyship属于简单难度，Car、Coffee属于中等难度，Scar、Scarf属于高难度。训练模型时，针对一个场景数据集进行训练。以Easyship为例，可运行以下命令：
+完成后，可以看到模型训练测试使用的场景数据集在./data/nerf_synthetic/目录下。本次比赛共包含5个测试场景，其中Easyship属于简单难度，Car、Coffee属于中等难度，Scar、Scarf属于高难度。训练模型时，针对一个场景数据集进行训练。以Easyship为例，可运行以下命令：
 ```
 python demo7-nerf.py --config ./configs/Easyship.txt
 ```
