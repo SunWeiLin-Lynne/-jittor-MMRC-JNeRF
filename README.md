@@ -1,6 +1,6 @@
 # Jittor 可微渲染新视角生成赛题(JNeRF)
 
-![主要结果](https://s3.bmp.ovh/imgs/2022/04/19/440f015864695c92.png)
+![主要结果](https://github.com/SunWeiLin-Lynne/jittor-MMRC-JNeRF/blob/main/%E5%9B%BE%E7%89%871.png)
 
 
 
