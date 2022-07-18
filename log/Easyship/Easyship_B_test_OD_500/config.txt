@@ -1,0 +1,27 @@
+expname = Easyship_B_test_OD_500
+basedir = ./logs/Easyship
+datadir = ./data/nerf_synthetic/Easyship
+dataset_type = blender
+
+far = 12.
+multires = 10
+
+no_batching = True
+
+use_viewdirs = True
+white_bkgd = True
+lrate = 1e-3
+lrate_decay = 500
+
+N_samples = 64
+N_importance = 128
+N_rand = 1024
+
+object_detection = True
+precrop_iters = 500
+precrop_frac = 0.5
+i_img = 10000
+
+
+testskip=1
+half_res = False
