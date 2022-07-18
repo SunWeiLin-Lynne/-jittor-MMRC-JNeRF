@@ -1,12 +1,13 @@
 # Jittor 可微渲染新视角生成赛题(JNeRF)
-| 标题名称包含赛题、方法
 
 ![主要结果](https://s3.bmp.ovh/imgs/2022/04/19/440f015864695c92.png)
 
-｜展示方法的流程特点或者主要结果等
+
 
 ## 简介
-| 本项目包含了第二届计图人工智能挑战赛赛题二-可微渲染新视角生成的代码实现。本项目采用NeRF算法的思路，并使用计图(Jittor)框架的Jrender仓库实现。通过调整参数以及模型的训练方式，在五个场景数据集中训练出对应的NeRF模型。目前JNeRF模型在A榜的测试数据中的PSNR达到了100.5843，在B榜的测试数据中已达到64.6952。
+ 本项目包含了第二届计图人工智能挑战赛赛题二-可微渲染新视角生成的代码实现。本项目的特点是采用NeRF的算法思想，使用计图(Jittor)框架的Jrender仓库对模型进行实现。
+
+ 本项目在五个场景数据集中训练对应的NeRF模型，并通过调整参数以及模型的训练方式，提高模型预测的准确率。目前JNeRF模型在A榜的测试数据中的PSNR均值之和达到了100.5843，在B榜的测试数据中已达到64.6952。
 
 ## 安装 
 
@@ -28,7 +29,7 @@
 - opencv-python==4.2.0.34
 
 ## 训练
-｜ 安装好jittor和上述其他依赖包后可按照以下命令运行：
+安装好jittor和上述其他依赖包后可按照以下命令运行：
 ```
 cd jrender
 bash download_competition_data.sh
@@ -37,19 +38,26 @@ bash download_competition_data.sh
 ```
 python demo7-nerf.py --config ./configs/Easyship.txt
 ```
-同理，可以训练Car、Coffee、Scar、Scarf对应的模型。完成训练后，日志文件保存在./logs/场景名/expname/中
+同理，可以训练Car、Coffee、Scar、Scarf对应的模型。完成训练后，日志文件保存在./logs/场景名/expname/中。
 
 ## 推理
-｜生成测试集上的结果可以运行以下命令：
-
+#### 测试
+在测试集上的生成结果，以Easyship为例，可运行以下命令：
 ```
-bash scripts/test.sh
+python test.py --config ./configs/Easyship.txt
+```
+其他场景同理。测试结果将保存至./test_result/中
+#### 后处理
+完成训练及测试后，对每个场景模型的部分结果进行后处理，最终结果将保存至./result中，可运行以下命令：
+```
+python findbdb.py --config ./configs/Post_config.txt
 ```
 
 ## 致谢
-| 对参考的论文、开源库予以致谢，可选
 
-此项目基于论文 *A Style-Based Generator Architecture for Generative Adversarial Networks* 实现，部分代码参考了 [jittor-gan](https://github.com/Jittor/gan-jittor)。
+此项目基于论文*Jittor: a novel deep learning framework with meta-operators and unified graph execution*以及*NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis* 实现。
+
+部分代码参考了 [jittor-baseline](https://github.com/Jittor/jrender)。
 
 ## 注意事项
 
