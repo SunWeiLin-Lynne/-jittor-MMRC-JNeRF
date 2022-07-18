@@ -1,0 +1,26 @@
+expname = Scar_B_test
+basedir = ./logs/Scar
+datadir = ./data/nerf_synthetic/Scar
+dataset_type = blender
+
+far = 6.
+multires = 10
+
+no_batching = True
+
+use_viewdirs = True
+white_bkgd = True
+lrate = 3e-3
+lrate_decay = 500
+
+N_samples = 64
+N_importance = 128
+N_rand = 1024
+
+precrop_iters = 500
+precrop_frac = 0.5
+ubprecrop_frac = 0.7
+
+
+testskip=1
+half_res = False
