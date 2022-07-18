@@ -58,9 +58,3 @@ python findbdb.py --config ./configs/Post_config.txt
 此项目基于论文*Jittor: a novel deep learning framework with meta-operators and unified graph execution*以及*NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis* 实现。
 
 部分代码参考了 [jittor-baseline](https://github.com/Jittor/jrender)。
-
-## 注意事项
-
-点击项目的“设置”，在Description一栏中添加项目描述，需要包含“jittor”字样。同时在Topics中需要添加jittor。
-
-![image-20220419164035639](https://s3.bmp.ovh/imgs/2022/04/19/6a3aa627eab5f159.png)
