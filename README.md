@@ -6,13 +6,9 @@
 ｜展示方法的流程特点或者主要结果等
 
 ## 简介
-| 简单介绍项目背景、项目特点
-本项目包含了第二届计图人工智能挑战赛赛题二-可微渲染新视角生成的代码实现。本项目采用NeRF算法的思路，并使用计图(Jittor)框架的Jrender仓库实现。通过调整参数以及模型的训练方式，在五个场景数据集中训练出对应的NeRF模型。目前JNeRF模型在A榜的测试数据中的PSNR达到了100.5843，在B榜的测试数据中已达到64.6952。
+| 本项目包含了第二届计图人工智能挑战赛赛题二-可微渲染新视角生成的代码实现。本项目采用NeRF算法的思路，并使用计图(Jittor)框架的Jrender仓库实现。通过调整参数以及模型的训练方式，在五个场景数据集中训练出对应的NeRF模型。目前JNeRF模型在A榜的测试数据中的PSNR达到了100.5843，在B榜的测试数据中已达到64.6952。
 
 ## 安装 
-| 介绍基本的硬件需求、运行环境、依赖安装方法
-
-本项目可在 2 张 2080 上运行，训练时间约为 6 小时。
 
 #### 运行环境
 - ubuntu 18.04.5
@@ -22,32 +18,29 @@
 
 #### 安装依赖
 使用JRender前需要安装好Jittor及其他安装包，如下：
-jittor
-imageio==2.9.0
-imageio-ffmpeg==0.4.3
-matplotlib==3.3.0
-configargparse==1.3
-tensorboard==1.14.0
-tqdm==4.46.0
-opencv-python==4.2.0.34
+- jittor
+- imageio==2.9.0
+- imageio-ffmpeg==0.4.3
+- matplotlib==3.3.0
+- configargparse==1.3
+- tensorboard==1.14.0
+- tqdm==4.46.0
+- opencv-python==4.2.0.34
 
 ## 训练
-｜ 介绍模型训练的方法
-
-单卡训练可运行以下命令：
+｜ 安装好jittor和上述其他依赖包后可按照以下命令运行：
 ```
-bash scripts/train.sh
+cd jrender
+bash download_competition_data.sh
 ```
-
-多卡训练可以运行以下命令：
+完成后，可以看到模型训练测试使用的场景数据集。本次比赛共包含5个测试场景，其中Easyship属于简单难度，Car、Coffee属于中等难度，Scar、Scarf属于高难度。训练模型时，针对一个场景数据集进行训练。以Easyship为例，可运行以下命令：
 ```
-bash scripts/train-multigpu.sh
+python demo7-nerf.py --config ./configs/Easyship.txt
 ```
+同理，可以训练Car、Coffee、Scar、Scarf对应的模型。完成训练后，日志文件保存在./logs/场景名/expname/中
 
 ## 推理
-｜ 介绍模型推理、测试、或者评估的方法
-
-生成测试集上的结果可以运行以下命令：
+｜生成测试集上的结果可以运行以下命令：
 
 ```
 bash scripts/test.sh
